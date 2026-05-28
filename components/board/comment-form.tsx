@@ -8,7 +8,7 @@ export function CommentForm({ postId }: { postId: string }) {
       <textarea
         name="content"
         rows={4}
-        className="w-full rounded-lg border bg-background px-3 py-2 outline-none ring-0"
+        className="w-full rounded-lg border border-border bg-background px-3 py-2 text-foreground placeholder:text-muted-foreground outline-none transition-colors focus:border-primary focus:ring-2 focus:ring-primary/20 disabled:bg-muted disabled:text-muted-foreground"
         placeholder="댓글을 입력하세요"
       />
       <div className="flex justify-end">
