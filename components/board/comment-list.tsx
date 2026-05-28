@@ -34,10 +34,10 @@ export function CommentList({ comments, currentUserId }: CommentListProps) {
           const canEdit = comment.author.id === currentUserId
 
           return (
-            <div key={comment.id} className="rounded-lg border p-4">
+            <div key={comment.id} className="rounded-lg border border-border bg-card/50 p-4 transition-colors hover:bg-card">
               <div className="flex items-start justify-between gap-4">
                 <div className="space-y-1">
-                  <p className="font-medium">
+                  <p className="font-medium text-foreground">
                     {comment.author.name ?? comment.author.email}
                   </p>
                   <p className="text-xs text-muted-foreground">
@@ -53,12 +53,12 @@ export function CommentList({ comments, currentUserId }: CommentListProps) {
                   </form>
                 ) : null}
               </div>
-              <p className="mt-3 whitespace-pre-wrap text-sm leading-6">
+              <p className="mt-3 whitespace-pre-wrap text-sm leading-6 text-foreground">
                 {comment.content}
               </p>
               {canEdit ? (
-                <details className="mt-4 rounded-lg bg-muted/50 p-3">
-                  <summary className="cursor-pointer text-sm font-medium">
+                <details className="mt-4 rounded-lg bg-muted/30 p-3 border border-border">
+                  <summary className="cursor-pointer text-sm font-medium text-foreground">
                     댓글 수정
                   </summary>
                   <form action={updateComment} className="mt-3 space-y-3">
@@ -67,7 +67,7 @@ export function CommentList({ comments, currentUserId }: CommentListProps) {
                       name="content"
                       rows={4}
                       defaultValue={comment.content}
-                      className="w-full rounded-lg border bg-background px-3 py-2 outline-none ring-0"
+                      className="w-full rounded-lg border border-border bg-background px-3 py-2 text-foreground placeholder:text-muted-foreground outline-none transition-colors focus:border-primary focus:ring-2 focus:ring-primary/20"
                     />
                     <div className="flex justify-end">
                       <Button type="submit" size="sm">
